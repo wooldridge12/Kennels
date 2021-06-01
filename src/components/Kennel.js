@@ -2,8 +2,6 @@
 //This is simply another way of defining a component function that returns an HTML representation of a kennel.
 import React from "react"
 // import { Animal } from "./animal/Animal"
-import { Location } from "./location/location"
-import { Employee } from "./employees/employees"
 import "./Kennel.css"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
