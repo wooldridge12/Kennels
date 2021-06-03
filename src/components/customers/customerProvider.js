@@ -11,15 +11,15 @@ export const CustomerProvider = (props) => {
         .then(setCustomers)
     }
 
-    const addCustomer = customerObj => {
+    const addCustomer = customer => {
         return fetch("http://localhost:8088/customers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(customerObj)
+            body: JSON.stringify(customer)
         })
-        .then(getCustomers)
+        .then(response => response.json())
     }
 
     return (
