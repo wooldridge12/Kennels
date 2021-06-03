@@ -12,6 +12,8 @@ import { EmployeeList } from "./employees/employeeList"
 import { AnimalForm } from "../components/animal/AnimalForm"
 import { CustomerForm } from "./customers/CustomerForm"
 import { EmployeeForm } from "./employees/EmployeeForm"
+import { AnimalDetail } from "./animal/AnimalDetail"
+import { LocationForm } from "./location/LocationForm"
 
 //This is providing a route to the http:// api 
 //next part in kennels.js
@@ -23,21 +25,36 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations">
                     <LocationList />
                 </Route>
+                
+                <Route exact path="/locations/create">
+                    <LocationForm />
+                </Route>
+
             </LocationProvider>
 
             {/* Render the animal list when http://localhost:3000/animals */}
             <AnimalProvider>
-                <Route exact path="/animals">
-                    <AnimalList />
-                </Route>
-
                 <LocationProvider>
                     <CustomerProvider>
+
+                        <Route exact path="/animals">
+                            <AnimalList />
+                        </Route>
+
                         <Route exact path="/animals/create">
                             <AnimalForm />
                         </Route>
+
+
+
+                        <Route exact path="/animals/detail/:animalId(\d+)">
+                            <AnimalDetail />
+                        </Route>
+
                     </CustomerProvider>
                 </LocationProvider>
+
+
             </AnimalProvider>
 
             {/* Render Customers http://localhost:8088/customers */}
@@ -48,9 +65,11 @@ export const ApplicationViews = () => {
 
                 <LocationProvider>
                     <CustomerProvider>
+
                         <Route exact path="/customers/create">
                             <CustomerForm />
                         </Route>
+
                     </CustomerProvider>
                 </LocationProvider>
             </CustomerProvider>
@@ -68,6 +87,7 @@ export const ApplicationViews = () => {
                         <Route exact path="/employees/create">
                             <EmployeeForm />
                         </Route>
+
                     </CustomerProvider>
                 </LocationProvider>
             </EmployeeProvider>
