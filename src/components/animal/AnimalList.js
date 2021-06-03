@@ -1,25 +1,27 @@
-import React, { useContext, useEffect } from "react"
+import React, {useState, useContext, useEffect } from "react"
+// import { Animal } from "./Animal"
 import "./Animal.css"
 import { AnimalContext } from "./AnimalProvider"
+import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 
-export const AnimalList = () => {
+// export const AnimalList = () => {
   // This state changes when `getAnimals()` is invoked below
-  const { animals, getAnimals } = useContext(AnimalContext)
+  // const { animals, getAnimals } = useContext(AnimalContext)
   // Invoke the useHistory() hook function
-  const history = useHistory()
+  // const history = useHistory()
 
   //useEffect - reach out to the world for something
-  useEffect(() => {
-    console.log("AnimalList: useEffect - getAnimals")
-    getAnimals()
-  }, [])
+  // useEffect(() => {
+  //   console.log("AnimalList: useEffect - getAnimals")
+  //   getAnimals()
+  // }, [])
 
 
-  return (
-    <>
+  // return (
+  //   <>
       {/* Adding button part 1 also dont forget line 9 const history = useHistory() and import*/}
-      <h2>Animals</h2>
+      {/* <h2>Animals</h2>
       <button onClick={
         () => history.push("/animals/create")
       }>
@@ -44,6 +46,34 @@ export const AnimalList = () => {
       </section>
     </>
   )
-}
+} */}
 
 // Invoke the useHistory() hook function
+export const AnimalList = () => {
+  const history = useHistory()
+  const { getAnimals, animals } = useContext(AnimalContext)
+
+  // Initialization effect hook -> Go get animal data
+  useEffect(()=>{
+      getAnimals()
+  }, [])
+
+  return (
+      <>
+          <h1>Animals</h1>
+
+          <button onClick={() => history.push("/animals/create")}>
+              Make Reservation
+          </button>
+
+          <div className="animals">
+              {
+                  animals.map(animal => <Link className="animal" to={`/animals/detail/${animal.id}`}>
+                        { animal.name }
+                      </Link>
+                  )
+              }
+          </div>
+      </>
+  )
+}
