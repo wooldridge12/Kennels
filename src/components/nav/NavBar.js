@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
 
+//NavBar next is on ApplicationViews.js
 export const NavBar = (props) => {
     return (
         <ul className="navbar">
@@ -17,7 +18,7 @@ export const NavBar = (props) => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/customers">Customers</Link>
             </li>
-            <li className="navbar__link">
+            <li className="navbar__item">
                 <Link className="navbar__link" to="/employees">Employees</Link>
                 </li> 
         </ul>
