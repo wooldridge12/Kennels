@@ -39,17 +39,17 @@ export const LocationForm = () => {
   const handleClickSaveLocation = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
 
-    const locationAddress = parseInt(location.address)
+    const address = parseInt(location.address)
     const locationName = parseInt(location.name)
 
-    if (locationAddress === 0 || locationName === 0) {
+    if (address === 0 || locationName === 0) {
       window.alert("Please select a location and a customer")
     } else {
       
 
       const newLocation = {
         name: location.name,
-        locationAddress: location.address
+        address: location.address
       }
       addLocation(newLocation)
         .then(() => history.push("/locations"))
@@ -68,7 +68,7 @@ export const LocationForm = () => {
 
       <fieldset>
         <div className="form-group">
-          <label htmlFor="location">Location Address:</label>
+          <label htmlFor="address">Location Address:</label>
           <input type="text" id="address" required autoFocus className="form-control" placeholder="Location address" value={location.address} onChange={handleControlledInputChange} />
         </div>
       </fieldset>

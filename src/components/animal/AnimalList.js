@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react"
 // import { Animal } from "./Animal"
 import "./Animal.css"
 import { AnimalContext } from "./AnimalProvider"
@@ -6,22 +6,22 @@ import { Link } from "react-router-dom"
 import { useHistory } from 'react-router-dom'
 
 // export const AnimalList = () => {
-  // This state changes when `getAnimals()` is invoked below
-  // const { animals, getAnimals } = useContext(AnimalContext)
-  // Invoke the useHistory() hook function
-  // const history = useHistory()
+// This state changes when `getAnimals()` is invoked below
+// const { animals, getAnimals } = useContext(AnimalContext)
+// Invoke the useHistory() hook function
+// const history = useHistory()
 
-  //useEffect - reach out to the world for something
-  // useEffect(() => {
-  //   console.log("AnimalList: useEffect - getAnimals")
-  //   getAnimals()
-  // }, [])
+//useEffect - reach out to the world for something
+// useEffect(() => {
+//   console.log("AnimalList: useEffect - getAnimals")
+//   getAnimals()
+// }, [])
 
 
-  // return (
-  //   <>
-      {/* Adding button part 1 also dont forget line 9 const history = useHistory() and import*/}
-      {/* <h2>Animals</h2>
+// return (
+//   <>
+{/* Adding button part 1 also dont forget line 9 const history = useHistory() and import*/ }
+{/* <h2>Animals</h2>
       <button onClick={
         () => history.push("/animals/create")
       }>
@@ -54,26 +54,28 @@ export const AnimalList = () => {
   const { getAnimals, animals } = useContext(AnimalContext)
 
   // Initialization effect hook -> Go get animal data
-  useEffect(()=>{
-      getAnimals()
+  useEffect(() => {
+    getAnimals()
   }, [])
 
   return (
-      <>
-          <h1>Animals</h1>
+    <>
+      <h1>Animals</h1>
 
-          <button onClick={() => history.push("/animals/create")}>
-              Make Reservation
+      <button onClick={() => history.push("/animals/create")}>
+        Make Reservation
           </button>
-
-          <div className="animals">
-              {
-                  animals.map(animal => <Link className="animal" to={`/animals/detail/${animal.id}`}>
-                        { animal.name }
-                      </Link>
-                  )
-              }
-          </div>
-      </>
+      <section>
+        <div className="animals">
+          {
+            animals.map(animal =><div className="animal"> <Link className="" to={`/animals/detail/${animal.id}`}>
+             {animal.name}<br/>
+            </Link>
+            {animal.breed}</div>
+            )
+          }
+        </div>
+      </section>
+    </>
   )
 }

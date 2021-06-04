@@ -14,6 +14,7 @@ import { CustomerForm } from "./customers/CustomerForm"
 import { EmployeeForm } from "./employees/EmployeeForm"
 import { AnimalDetail } from "./animal/AnimalDetail"
 import { LocationForm } from "./location/LocationForm"
+import { LocationDetail } from "./location/locationDetail"
 
 //This is providing a route to the http:// api 
 //next part in kennels.js
@@ -28,6 +29,10 @@ export const ApplicationViews = () => {
                 
                 <Route exact path="/locations/create">
                     <LocationForm />
+                </Route>
+
+                <Route exact path="/locations/detail/:locationId(\d+)">
+                            <LocationDetail />
                 </Route>
 
             </LocationProvider>

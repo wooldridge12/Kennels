@@ -1,6 +1,9 @@
+//This code imports the main React library, and two functions that it exports. 
+//We will useState to hold and set the array of animals.
 import React, { useState, createContext } from "react"
 
 // The context is imported and used by individual components that need data
+
 export const AnimalContext = createContext()
 
 // This component establishes what data can be used.
