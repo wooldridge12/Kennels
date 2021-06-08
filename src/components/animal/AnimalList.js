@@ -68,7 +68,7 @@ export const AnimalList = () => {
       <section>
         <div className="animals">
           {
-            animals.map(animal =><div className="animal"> <Link className="" to={`/animals/detail/${animal.id}`}>
+            animals.map(animal =><div className="animal"> <Link className="" to={`/animals/detail/${animal.id}`} key={animal.id}>
              {animal.name}<br/>
             </Link>
             {animal.breed}</div>

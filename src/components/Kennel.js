@@ -39,7 +39,6 @@ import "./Kennel.css";
 
 export const Kennel = () => (
   <>
-    
     {/* HTML rep of NavBar  next step is on index.js */}
          {/* <NavBar />
         <ApplicationViews /> */}
@@ -49,7 +48,6 @@ export const Kennel = () => (
             <div>Visit Us at the Nashville North Location</div>
             <div>500 Puppy Way</div>
         </address>
-
 
     <Route
       render={() => {
