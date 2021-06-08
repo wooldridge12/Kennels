@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { CustomerList } from "../customers/customerList"
+// import { CustomerList } from "../customers/customerList"
 import "./location.css"
 import { LocationContext } from "./locationProvider"
 import { useHistory } from "react-router-dom"
@@ -70,11 +70,15 @@ export const LocationList = () => {
                     locations.map(location => <div className="location"> <Link className="" to={`/locations/detail/${location.id}`}>
                           { location.name } <br/>
                         </Link>
-                        
                         </div>
                     )
                 }
             </div>
+            {/* <div className="oneTwo">
+            <Link className="image__link">BUDGET MEALS</Link>
+            College student 
+            </div> */}
+            
         </>
     )
   }

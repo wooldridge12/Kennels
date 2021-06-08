@@ -3,7 +3,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { LocationProvider } from "./location/locationProvider"
 import { LocationList } from "./location/locationList"
-import { AnimalProvider } from "./animal/AnimalProvider"
+import { AnimalContext, AnimalProvider } from "./animal/AnimalProvider"
 import { AnimalList } from "./animal/AnimalList"
 import { CustomerProvider } from "./customers/customerProvider"
 import { CustomerList } from "./customers/customerList"
@@ -26,13 +26,13 @@ export const ApplicationViews = () => {
                 <Route exact path="/locations">
                     <LocationList />
                 </Route>
-                
+
                 <Route exact path="/locations/create">
                     <LocationForm />
                 </Route>
 
                 <Route exact path="/locations/detail/:locationId(\d+)">
-                            <LocationDetail />
+                    <LocationDetail />
                 </Route>
 
             </LocationProvider>
@@ -46,11 +46,14 @@ export const ApplicationViews = () => {
                             <AnimalList />
                         </Route>
 
-                        <Route exact path="/animals/create">
+                        <Route exact path="/animals/edit/:animalId(\d+)">
                             <AnimalForm />
                         </Route>
 
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
 
+                        </Route>
 
                         <Route exact path="/animals/detail/:animalId(\d+)">
                             <AnimalDetail />
@@ -58,8 +61,6 @@ export const ApplicationViews = () => {
 
                     </CustomerProvider>
                 </LocationProvider>
-
-
             </AnimalProvider>
 
             {/* Render Customers http://localhost:8088/customers */}
@@ -96,6 +97,7 @@ export const ApplicationViews = () => {
                     </CustomerProvider>
                 </LocationProvider>
             </EmployeeProvider>
+
         </>
     )
 }
