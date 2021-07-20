@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 export const EmployeeList = () => {
     const { employees, getEmployees } = useContext(EmployeeContext)
     useEffect(() => {
-        console.log("CustomerList: useEffect - getCustomers")
+        console.log("CustomerList: useEffect - getEmployees")
         getEmployees()
     }, [])
     //Dont forget to import history
